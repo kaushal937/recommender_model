@@ -1,0 +1,45 @@
+{
+  "name": "recommender",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "recommender"
+  ],
+  "homepage": "https://github.com/kaushal937/recommender_model#readme",
+  "bugs": {
+    "url": "https://github.com/kaushal937/recommender_model/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaushal937/recommender_model.git"
+  },
+  "license": "ISC",
+  "author": "kaushal937",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "startML": "pm2 start app.js --name \"ml-model-service\"",
+    "stopML": "pm2 stop \"ml-model-service\" && pm2 delete \"ml-model-service\"",
+    "logsML": "pm2 logs \"ml-model-service\"",
+    "getRec" : "node getRecommendation.js",
+    "calcu1recall" : "node ../dataset/ml-100k/testing_scripts/u1_recall/recall.js",
+    "calcu2recall" : "node ../dataset/ml-100k/testing_scripts/u2_recall/recall.js",
+    "calcu3recall" : "node ../dataset/ml-100k/testing_scripts/u3_recall/recall.js",
+    "calcu4recall" : "node ../dataset/ml-100k/testing_scripts/u4_recall/recall.js",
+    "calcu5recall" : "node ../dataset/ml-100k/testing_scripts/u5_recall/recall.js"
+  },
+  "devDependencies": {
+    "node-gyp": "^13.0.2"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^4.22.0",
+    "dotenv": "^18.0.3",
+    "path": "^0.12.7"
+  },
+  "imports": {
+    "#paths": "./controllers/path/executingPath.js",
+    "#logutils": "./controllers/logutilities/logutils.js",
+    "#dataset": "./controllers/datafeeder/getdataset.js",
+    "#formulae": "./controllers/formulae/formulae.js"
+  }
+}
